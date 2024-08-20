@@ -12,10 +12,10 @@
     <url>https://javaops-demo.ru/topjava</url>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>1.19</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring.version>5.3.37</spring.version>
+        <spring.version>5.3.39</spring.version>
 
         <!-- Logging -->
         <logback.version>1.2.13</logback.version>
@@ -36,8 +36,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>10</source>
+                    <target>10</target>
                 </configuration>
             </plugin>
         </plugins>
