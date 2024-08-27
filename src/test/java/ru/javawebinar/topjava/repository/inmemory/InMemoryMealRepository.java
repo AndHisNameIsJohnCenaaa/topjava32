@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import ru.javawebinar.topjava.MealTestData;
-import ru.javawebinar.topjava.UserTestData;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.repository.MealRepository;
 import ru.javawebinar.topjava.util.Util;
@@ -27,7 +26,7 @@ public class InMemoryMealRepository implements MealRepository {
     {
         InMemoryBaseRepository<Meal> userMeals = new InMemoryBaseRepository<>();
         MealTestData.meals.forEach(userMeals::put);
-        usersMealsMap.put(UserTestData.USER_ID, userMeals);
+        usersMealsMap.put(ru.javawebinar.topjava.UserTestData.USER_ID, userMeals);
     }
 
 
