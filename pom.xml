@@ -22,6 +22,9 @@
         <hibernate-validator.version>6.2.5.Final</hibernate-validator.version>
         <javax-el.version>3.0.1-b12</javax-el.version>
 
+        <!--Cache-->
+        <ehcache.version>3.10.8</ehcache.version>
+
         <!-- Logging -->
         <logback.version>1.2.13</logback.version>
         <slf4j.version>1.7.36</slf4j.version>
@@ -93,13 +96,12 @@
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
+            <artifactId>spring-context-support</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${spring.version}</version>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data-jpa.version}</version>
         </dependency>
 
         <!--DataBase-->
@@ -135,6 +137,32 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Cache -->
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <scope>runtime</scope>
+            <version>${ehcache.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--https://medium.com/criciumadev/its-time-migrating-to-java-11-5eb3868354f9-->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.4.0-b180830.0438</version>
+        </dependency>
+
         <!--Web-->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -159,7 +187,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -174,5 +201,14 @@
     </profiles>
 
     <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
     </dependencyManagement>
 </project>
